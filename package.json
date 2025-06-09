@@ -1,0 +1,38 @@
+{
+    "name": "erc20-whale-tracker",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint . --ext .ts,.tsx --fix",
+        "format": "prettier . --write",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MadroneXBT/erc20-whale-tracker.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MadroneXBT/erc20-whale-tracker/issues"
+    },
+    "homepage": "https://github.com/MadroneXBT/erc20-whale-tracker#readme",
+    "description": "",
+    "dependencies": {
+        "discord.js": "^14.19.3",
+        "dotenv": "^16.5.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.28.0",
+        "@typescript-eslint/eslint-plugin": "^8.33.1",
+        "@typescript-eslint/parser": "^8.33.1",
+        "eslint": "^9.28.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.4.1",
+        "prettier": "3.5.3",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.33.1"
+    }
+}

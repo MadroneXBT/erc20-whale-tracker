@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+
+# IDE-specific
+.vscode/
+.idea/
+*.sw?
+
+# OS-specific
+.DS_Store
+
+# ESLint/Prettier cache
+.eslintcache
+.prettiercache
