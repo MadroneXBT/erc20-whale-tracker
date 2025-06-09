@@ -53,7 +53,9 @@ export const getUsdPriceOfToken = async (): Promise<string> => {
         )
     }
 
-    Cache.tokenPrice.set(cacheKey, usdPrice.value)
+    const parsedUsdPrice = Number(usdPrice.value).toFixed(2)
 
-    return usdPrice.value
+    Cache.tokenPrice.set(cacheKey, parsedUsdPrice)
+
+    return parsedUsdPrice
 }

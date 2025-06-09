@@ -11,7 +11,7 @@ const price: Command = {
         const usdPrice = await getUsdPriceOfToken()
 
         await interaction.followUp(
-            `**$${Number(usdPrice).toFixed(2)}** per ${config.TOKEN_SYMBOL}`,
+            `**$${usdPrice}** per ${config.TOKEN_SYMBOL}`,
         )
     },
 }
