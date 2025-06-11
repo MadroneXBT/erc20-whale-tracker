@@ -80,7 +80,7 @@ export const detectAndPostWhalePurchases = async ({
                         .setAuthor({
                             name: `${config.TOKEN_NAME} • Whale Watcher`,
                             iconURL: config.DISCORD_EMBED_ICON_URL,
-                            url: 'https://keeta.com/',
+                            url: config.DISCORD_AUTHOR_URL,
                         })
                         .setFooter({
                             text: `Whale Purchase Alert • $${config.TOKEN_SYMBOL}`,
