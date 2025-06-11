@@ -3,7 +3,7 @@ import { GetTokenPriceByAddressResponse } from 'alchemy-sdk'
 import config from '../config'
 import Cache from './cache'
 
-const alchemyAPIInstance = axios.create({
+const alchemyAPI = axios.create({
     baseURL: 'https://api.g.alchemy.com',
     headers: {
         Accept: 'application/json',
@@ -19,7 +19,7 @@ export const getUsdPriceOfToken = async (): Promise<string> => {
         return cached
     }
 
-    const res = await alchemyAPIInstance.post<GetTokenPriceByAddressResponse>(
+    const res = await alchemyAPI.post<GetTokenPriceByAddressResponse>(
         `/prices/v1/${config.ALCHEMY_API_KEY}/tokens/by-address`,
         {
             addresses: [
@@ -35,10 +35,10 @@ export const getUsdPriceOfToken = async (): Promise<string> => {
 
     if (!token || token.error) {
         throw new Error(
-            `Cannot find USD price for currency token ${
+            `Cannot find currency token ${
                 config.TOKEN_NAME
             } on ${config.ALCHEMY_NETWORK} with error: ${
-                token?.error?.message || 'Unknown'
+                token?.error?.message || 'N/A'
             }`,
         )
     }

@@ -19,8 +19,7 @@ const client = new Client({
 
 client.once(Events.ClientReady, async (client) => {
     if (!client.user || !client.application) {
-        console.error('Client user or application is not defined.')
-        return
+        throw new Error('Client user or application is not defined.')
     }
 
     await client.application.commands.set(commands)
