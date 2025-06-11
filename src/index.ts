@@ -8,6 +8,7 @@ import {
 import config from './config'
 import { commands, handleSlashCommand } from './commands'
 import { getUsdPriceOfToken } from './services/alchemy'
+import { detectAndPostWhalePurchases } from './services/discord'
 
 const client = new Client({
     intents: [
@@ -33,9 +34,10 @@ client.once(Events.ClientReady, async (client) => {
         client.user.setActivity({
             name: `$${usdPrice} ${config.TOKEN_SYMBOL}`,
             type: ActivityType.Watching,
-            url: 'https://keeta.com',
         })
-    }, 30 * 1000)
+
+        await detectAndPostWhalePurchases({ client })
+    }, config.DISCORD_PRICE_ACTIVITY_AND_WHALE_ALERT_INTERVAL_SECONDS * 1000)
 })
 
 client.on('interactionCreate', async (interaction: Interaction) => {
@@ -44,8 +46,8 @@ client.on('interactionCreate', async (interaction: Interaction) => {
     }
 })
 
-if (!config.BOT_TOKEN.length) {
+if (!config.DISCORD_BOT_TOKEN.length) {
     throw new Error('BOT_TOKEN is not set in the environment variables.')
 }
 
-client.login(config.BOT_TOKEN)
+client.login(config.DISCORD_BOT_TOKEN)

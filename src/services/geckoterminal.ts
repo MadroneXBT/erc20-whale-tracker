@@ -54,7 +54,9 @@ export const getGeckoTerminalLatestTrades = async ({
 
         return trades
     } catch (error) {
-        console.error('Error fetching latest swaps:', error.message)
+        console.error(
+            `Failed to feetch latest swaps via GeckoTerminal with error: ${JSON.stringify(error)}`,
+        )
         throw error
     }
 }
