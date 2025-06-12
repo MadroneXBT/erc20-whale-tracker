@@ -17,8 +17,6 @@ export const handleSlashCommand = async (
                     'This command is currently unavailable. Please contact support for assistance.',
             })
         } else {
-            await interaction.deferReply()
-
             await slashCommand.execute(interaction)
         }
     } catch (error) {

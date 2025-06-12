@@ -5,6 +5,7 @@ import {
     GatewayIntentBits,
     Interaction,
 } from 'discord.js'
+import Storage from 'node-persist'
 import config from './config'
 import { commands, handleSlashCommand } from './commands'
 import { getUsdPriceOfToken } from './services/alchemy'
@@ -24,6 +25,10 @@ client.once(Events.ClientReady, async (client) => {
     }
 
     await client.application.commands.set(commands)
+
+    await Storage.init({
+        ttl: 1000 * 60 * 60 * 24, // 1 day
+    })
 
     console.log(`Ready! Logged in as ${client.user.tag}`)
 
