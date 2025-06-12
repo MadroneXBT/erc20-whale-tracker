@@ -19,8 +19,8 @@ export const detectAndPostWhalePurchases = async ({
         const embeds = trades
             .sort(
                 (a, b) =>
-                    new Date(b.attributes.block_timestamp).getTime() -
-                    new Date(a.attributes.block_timestamp).getTime(),
+                    new Date(a.attributes.block_timestamp).getTime() -
+                    new Date(b.attributes.block_timestamp).getTime(),
             )
             .reduce((acc, trade) => {
                 const {
